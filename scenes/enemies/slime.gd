@@ -2,13 +2,13 @@ extends CharacterBody2D
 
 var current_path: Array[Vector2i]
 @onready var tilemap = $"../Ground"
-@export var starting_tile = Vector2i(0,0)#tilemap.starting_tile
+@export var starting_tile = Vector2i(0,0) #tilemap.starting_tile
 var creature_speed = 0.75
  
 var finising_tile
 func _ready():
 	$AnimatedSprite2D.play()
-	position = tilemap.map_to_local(starting_tile)+ tilemap.astar.offset
+	position = tilemap.map_to_local(starting_tile)
 	finising_tile = tilemap.finishing_tile
 	current_path = tilemap.astar.get_id_path(starting_tile, finising_tile).slice(1)
 
