@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b64c7c4lmtdy0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6e32"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k6e32")
+animation = &"new_animation"
