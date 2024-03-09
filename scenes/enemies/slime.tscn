@@ -1,7 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://cl3o1p7hm2vvf"]
+[gd_scene load_steps=17 format=3 uid="uid://cl3o1p7hm2vvf"]
 
 [ext_resource type="Texture2D" uid="uid://c23jxp3u2hmf" path="res://assets/sprites/enemies/Slime.png" id="1_f0rk6"]
 [ext_resource type="Script" path="res://scenes/enemies/slime.gd" id="1_i4rkn"]
+[ext_resource type="Script" path="res://scenes/enemies/SpriteComponent.gd" id="3_dsr07"]
+[ext_resource type="Script" path="res://scenes/enemies/MovementComponent.gd" id="4_1k3ls"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdpf8"]
+radius = 5.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27kw4"]
 atlas = ExtResource("1_f0rk6")
@@ -81,16 +87,17 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdpf8"]
-radius = 3.0
-height = 10.0
-
 [node name="Slime" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_i4rkn")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, 0)
-sprite_frames = SubResource("SpriteFrames_x42pe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sdpf8")
+
+[node name="SpriteComponent" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_x42pe")
+script = ExtResource("3_dsr07")
+
+[node name="MovementComponent" type="Node2D" parent="."]
+script = ExtResource("4_1k3ls")
